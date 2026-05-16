@@ -1,0 +1,191 @@
+---
+const steps = [
+	{
+		number: "01",
+		title: "Add Contacts Face-to-Face",
+		description: "Scan a QR code to cryptographically verify identity. No servers, no phone numbers — just one scan and you're connected.",
+	},
+	{
+		number: "02",
+		title: "Messages Traverse the Mesh",
+		description: "Your encrypted message hops between nearby Bluetooth devices. Each relay extends your reach without ever decrypting the payload.",
+	},
+	{
+		number: "03",
+		title: "Delivery Without Infrastructure",
+		description: "Messages arrive when devices are in range. The mesh self-heals around obstacles and offline nodes, with automatic retry and acknowledgment.",
+	},
+];
+---
+
+<section id="how-it-works">
+	<div class="container">
+		<div class="section-label">How It Works</div>
+		<h2>Three steps. Zero servers.</h2>
+		<p class="section-desc">Communication should be as simple as talking to someone next to you — just with stronger encryption.</p>
+
+		<div class="steps">
+			{steps.map((step) => (
+				<div class="step">
+					<div class="step-number">{step.number}</div>
+					<div class="step-content">
+						<h3>{step.title}</h3>
+						<p>{step.description}</p>
+					</div>
+				</div>
+			))}
+		</div>
+
+		<div class="mesh-visual">
+			<svg viewBox="0 0 600 200" fill="none" class="mesh-svg">
+				<circle cx="80" cy="100" r="8" fill="var(--color-primary)" opacity="0.8"/>
+				<circle cx="180" cy="60" r="6" fill="var(--color-primary)" opacity="0.5"/>
+				<circle cx="250" cy="140" r="6" fill="var(--color-primary)" opacity="0.5"/>
+				<circle cx="300" cy="80" r="7" fill="var(--color-accent)" opacity="0.6"/>
+				<circle cx="380" cy="120" r="6" fill="var(--color-primary)" opacity="0.5"/>
+				<circle cx="450" cy="60" r="6" fill="var(--color-accent)" opacity="0.5"/>
+				<circle cx="520" cy="100" r="8" fill="var(--color-accent)" opacity="0.8"/>
+
+				<line x1="80" y1="100" x2="180" y2="60" stroke="var(--color-primary)" stroke-width="1" opacity="0.3"/>
+				<line x1="180" y1="60" x2="300" y2="80" stroke="var(--color-primary)" stroke-width="1" opacity="0.3"/>
+				<line x1="80" y1="100" x2="250" y2="140" stroke="var(--color-primary)" stroke-width="1" opacity="0.2"/>
+				<line x1="250" y1="140" x2="300" y2="80" stroke="var(--color-primary)" stroke-width="1" opacity="0.3"/>
+				<line x1="300" y1="80" x2="380" y2="120" stroke="var(--color-accent)" stroke-width="1" opacity="0.3"/>
+				<line x1="300" y1="80" x2="450" y2="60" stroke="var(--color-accent)" stroke-width="1" opacity="0.2"/>
+				<line x1="380" y1="120" x2="520" y2="100" stroke="var(--color-accent)" stroke-width="1" opacity="0.3"/>
+				<line x1="450" y1="60" x2="520" y2="100" stroke="var(--color-accent)" stroke-width="1" opacity="0.3"/>
+				<line x1="250" y1="140" x2="380" y2="120" stroke="var(--color-primary)" stroke-width="1" opacity="0.2"/>
+
+				<!-- Animated packets -->
+				<circle r="3" fill="var(--color-primary)">
+					<animateMotion dur="3s" repeatCount="indefinite" path="M80,100 L180,60 L300,80 L380,120 L520,100"/>
+				</circle>
+				<circle r="3" fill="var(--color-accent)" opacity="0.8">
+					<animateMotion dur="4s" repeatCount="indefinite" begin="1.5s" path="M520,100 L450,60 L300,80 L250,140 L80,100"/>
+				</circle>
+			</svg>
+			<div class="mesh-label">
+				<span class="mesh-dot"></span>
+				Live mesh relay visualization
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	#how-it-works {
+		padding: 140px 0;
+		border-top: 1px solid var(--color-surface-border);
+	}
+
+	.section-label {
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--color-accent);
+		margin-bottom: 16px;
+	}
+
+	h2 {
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 700;
+		margin-bottom: 16px;
+	}
+
+	.section-desc {
+		color: var(--color-text-muted);
+		font-size: 1.0625rem;
+		max-width: 520px;
+		margin-bottom: 64px;
+	}
+
+	.steps {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+		margin-bottom: 80px;
+	}
+
+	.step {
+		display: flex;
+		align-items: flex-start;
+		gap: 24px;
+		padding: 32px 0;
+		border-bottom: 1px solid var(--color-surface-border);
+	}
+
+	.step:first-child {
+		border-top: 1px solid var(--color-surface-border);
+	}
+
+	.step-number {
+		font-family: var(--font-mono);
+		font-size: 0.8125rem;
+		font-weight: 500;
+		color: var(--color-accent);
+		opacity: 0.7;
+		padding-top: 3px;
+		min-width: 28px;
+	}
+
+	.step-content h3 {
+		font-size: 1.125rem;
+		font-weight: 600;
+		margin-bottom: 8px;
+	}
+
+	.step-content p {
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		max-width: 560px;
+		line-height: 1.7;
+	}
+
+	.mesh-visual {
+		padding: 48px 32px 32px;
+		background: var(--color-surface);
+		border: 1px solid var(--color-surface-border);
+		border-radius: var(--radius-lg);
+		text-align: center;
+	}
+
+	.mesh-svg {
+		width: 100%;
+		max-width: 600px;
+		height: auto;
+		margin: 0 auto 24px;
+	}
+
+	.mesh-label {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		font-size: 0.75rem;
+		color: var(--color-text-muted);
+	}
+
+	.mesh-dot {
+		width: 6px;
+		height: 6px;
+		background: var(--color-primary);
+		border-radius: 50%;
+		animation: pulse 2s infinite;
+	}
+
+	@media (max-width: 640px) {
+		#how-it-works {
+			padding: 100px 0;
+		}
+
+		.step {
+			flex-direction: column;
+			gap: 8px;
+			padding: 24px 0;
+		}
+
+		.mesh-visual {
+			padding: 32px 16px 24px;
+		}
+	}
+</style>

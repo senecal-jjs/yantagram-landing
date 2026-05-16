@@ -1,0 +1,181 @@
+---
+const features = [
+	{
+		icon: "mesh",
+		title: "Bluetooth Mesh",
+		description: "Messages relay between nearby devices over BLE, forming a self-healing ad-hoc network. No towers, no WiFi, no infrastructure.",
+		tag: "Transport"
+	},
+	{
+		icon: "lock",
+		title: "End-to-End Encrypted",
+		description: "XChaCha20-Poly1305 encryption with X25519 key exchange. Only you and your recipient can read messages — not even relay nodes.",
+		tag: "Privacy"
+	},
+	{
+		icon: "offline",
+		title: "Offline-First",
+		description: "Works without any internet connection. Messages sync automatically when devices come into range with delivery acknowledgments.",
+		tag: "Resilience"
+	},
+	{
+		icon: "qr",
+		title: "QR Verification",
+		description: "Add contacts face-to-face by scanning QR codes for cryptographic identity verification. No phone numbers or emails needed.",
+		tag: "Identity"
+	},
+	{
+		icon: "group",
+		title: "Secure Groups",
+		description: "Group conversations use BeeKEM — a continuous group key agreement protocol built for unreliable mesh networks.",
+		tag: "Protocol"
+	},
+	{
+		icon: "disappear",
+		title: "Disappearing Messages",
+		description: "Set per-conversation retention from 30 seconds to 7 days. Messages are permanently erased from all devices after expiry.",
+		tag: "Ephemeral"
+	}
+];
+
+const icons: Record<string, string> = {
+	mesh: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v4m-5.2 5.8L10 13m4 0l3.2 4.8"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg>`,
+	lock: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="16" r="1.5" fill="currentColor" stroke="none"/></svg>`,
+	offline: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 12a9 9 0 0 1 18 0"/><path d="M7 12a5 5 0 0 1 10 0"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/><path d="M12 13.5V20"/><path d="M9 17l3 3 3-3"/></svg>`,
+	qr: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3z" fill="currentColor" stroke="none"/><path d="M20 14v3h-3m3 4h-6m3-4v4"/></svg>`,
+	group: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="9" cy="7" r="3"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14.5a3 3 0 0 1 3 3V21"/></svg>`,
+	disappear: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/><path d="M4 4l16 16" stroke-width="2" opacity="0.4"/></svg>`
+};
+---
+
+<section id="features">
+	<div class="container">
+		<div class="section-label">Features</div>
+		<h2>Everything you need,<br />nothing you don't</h2>
+		<p class="section-desc">Built from the ground up for a world where privacy is a right, not a feature toggle.</p>
+
+		<div class="features-grid">
+			{features.map((feature) => (
+				<div class="feature-card">
+					<div class="feature-header">
+						<div class="feature-icon" set:html={icons[feature.icon]} />
+						<span class="feature-tag">{feature.tag}</span>
+					</div>
+					<h3>{feature.title}</h3>
+					<p>{feature.description}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	#features {
+		padding: 140px 0;
+		position: relative;
+	}
+
+	.section-label {
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--color-primary);
+		margin-bottom: 16px;
+	}
+
+	h2 {
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 700;
+		margin-bottom: 16px;
+	}
+
+	.section-desc {
+		color: var(--color-text-muted);
+		font-size: 1.0625rem;
+		max-width: 480px;
+		margin-bottom: 64px;
+	}
+
+	.features-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1px;
+		background: var(--color-surface-border);
+		border: 1px solid var(--color-surface-border);
+		border-radius: var(--radius-lg);
+		overflow: hidden;
+	}
+
+	.feature-card {
+		padding: 36px 32px;
+		background: var(--color-surface);
+		transition: background 0.3s;
+	}
+
+	.feature-card:hover {
+		background: var(--color-surface-raised);
+	}
+
+	.feature-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 20px;
+	}
+
+	.feature-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 44px;
+		height: 44px;
+		background: var(--color-primary-dim);
+		border-radius: var(--radius-sm);
+		color: var(--color-primary);
+	}
+
+	.feature-tag {
+		font-size: 0.6875rem;
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var(--color-text-muted);
+		padding: 4px 8px;
+		background: rgba(255, 255, 255, 0.03);
+		border-radius: 4px;
+	}
+
+	.feature-card h3 {
+		font-size: 1.0625rem;
+		font-weight: 600;
+		margin-bottom: 10px;
+		letter-spacing: -0.01em;
+	}
+
+	.feature-card p {
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
+		line-height: 1.65;
+	}
+
+	@media (max-width: 1024px) {
+		.features-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 640px) {
+		#features {
+			padding: 100px 0;
+		}
+
+		.features-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.feature-card {
+			padding: 28px 24px;
+		}
+	}
+</style>
