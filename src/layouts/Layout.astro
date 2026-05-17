@@ -13,6 +13,14 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 		<title>Yantagram — Off-Grid Encrypted Messaging</title>
+		<script is:inline>
+			(function() {
+				var stored = localStorage.getItem('theme');
+				var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+				var theme = stored || (prefersDark ? 'dark' : 'light');
+				document.documentElement.setAttribute('data-theme', theme);
+			})();
+		</script>
 	</head>
 	<body>
 		<slot />
@@ -32,6 +40,10 @@
 		--color-bg: #050a0e;
 		--color-text: #cbd5e1;
 		--color-text-muted: #64748b;
+		--color-heading: #f1f5f9;
+		--color-btn-solid-bg: #f1f5f9;
+		--color-btn-solid-text: #050a0e;
+		--color-btn-solid-hover: #ffffff;
 		--font-sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 		--font-mono: 'JetBrains Mono', 'SF Mono', monospace;
 		--radius-sm: 8px;
@@ -39,6 +51,24 @@
 		--radius-lg: 20px;
 		--radius-xl: 28px;
 		--max-width: 1140px;
+	}
+
+	[data-theme="light"] {
+		--color-primary: #0891b2;
+		--color-primary-dim: rgba(8, 145, 178, 0.1);
+		--color-primary-glow: rgba(8, 145, 178, 0.2);
+		--color-accent: #7c3aed;
+		--color-accent-dim: rgba(124, 58, 237, 0.08);
+		--color-surface: #ffffff;
+		--color-surface-raised: #f8fafc;
+		--color-surface-border: rgba(0, 0, 0, 0.07);
+		--color-bg: #f1f5f9;
+		--color-text: #334155;
+		--color-text-muted: #64748b;
+		--color-heading: #0f172a;
+		--color-btn-solid-bg: #0f172a;
+		--color-btn-solid-text: #ffffff;
+		--color-btn-solid-hover: #1e293b;
 	}
 
 	*,
@@ -66,7 +96,7 @@
 	h1, h2, h3, h4 {
 		line-height: 1.1;
 		letter-spacing: -0.025em;
-		color: #f1f5f9;
+		color: var(--color-heading);
 	}
 
 	a {

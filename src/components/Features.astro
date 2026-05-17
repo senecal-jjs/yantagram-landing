@@ -1,41 +1,35 @@
 ---
 const features = [
 	{
-		icon: "mesh",
-		title: "Bluetooth Mesh",
-		description: "Messages relay between nearby devices over BLE, forming a self-healing ad-hoc network. No towers, no WiFi, no infrastructure.",
-		tag: "Transport"
-	},
-	{
-		icon: "lock",
-		title: "End-to-End Encrypted",
-		description: "XChaCha20-Poly1305 encryption with X25519 key exchange. Only you and your recipient can read messages — not even relay nodes.",
-		tag: "Privacy"
+		icon: "group",
+		title: "Secure Groups",
+		description: "Plan events, stay in touch with your friends. Group chats are effortless.",
 	},
 	{
 		icon: "offline",
 		title: "Offline-First",
-		description: "Works without any internet connection. Messages sync automatically when devices come into range with delivery acknowledgments.",
-		tag: "Resilience"
-	},
-	{
-		icon: "qr",
-		title: "QR Verification",
-		description: "Add contacts face-to-face by scanning QR codes for cryptographic identity verification. No phone numbers or emails needed.",
-		tag: "Identity"
-	},
-	{
-		icon: "group",
-		title: "Secure Groups",
-		description: "Group conversations use BeeKEM — a continuous group key agreement protocol built for unreliable mesh networks.",
-		tag: "Protocol"
+		description: "Works without any internet connection. Messages sync automatically when devices come into range.",
 	},
 	{
 		icon: "disappear",
 		title: "Disappearing Messages",
 		description: "Set per-conversation retention from 30 seconds to 7 days. Messages are permanently erased from all devices after expiry.",
-		tag: "Ephemeral"
-	}
+	},
+	{
+		icon: "mesh",
+		title: "Bluetooth Mesh",
+		description: "Messages relay between nearby devices over Bluetooth. No towers, no WiFi, no infrastructure.",
+	},
+	{
+		icon: "lock",
+		title: "End-to-End Encrypted",
+		description: "Your messages are secured with a lock. Only you and the person you're talking to can read messages.",
+	},
+	{
+		icon: "qr",
+		title: "QR Verification",
+		description: "Add contacts face-to-face by scanning QR codes for cryptographic identity verification. No phone numbers or emails needed.",
+	},
 ];
 
 const icons: Record<string, string> = {
@@ -51,15 +45,14 @@ const icons: Record<string, string> = {
 <section id="features">
 	<div class="container">
 		<div class="section-label">Features</div>
-		<h2>Everything you need,<br />nothing you don't</h2>
-		<p class="section-desc">Built from the ground up for a world where privacy is a right, not a feature toggle.</p>
+		<h2>The features you'd expect</h2>
+		<p class="section-desc">Easily communicate with your contacts with privacy and security baked in.</p>
 
 		<div class="features-grid">
 			{features.map((feature) => (
 				<div class="feature-card">
 					<div class="feature-header">
 						<div class="feature-icon" set:html={icons[feature.icon]} />
-						<span class="feature-tag">{feature.tag}</span>
 					</div>
 					<h3>{feature.title}</h3>
 					<p>{feature.description}</p>
@@ -71,7 +64,8 @@ const icons: Record<string, string> = {
 
 <style>
 	#features {
-		padding: 140px 0;
+		padding: 0px 0;
+        padding-bottom: 100px;
 		position: relative;
 	}
 

@@ -2,18 +2,18 @@
 const steps = [
 	{
 		number: "01",
-		title: "Add Contacts Face-to-Face",
-		description: "Scan a QR code to cryptographically verify identity. No servers, no phone numbers — just one scan and you're connected.",
+		title: "Ultimate Privacy",
+		description: "Yantagram has no central servers. Your identity and data is stored on your device only.",
 	},
 	{
 		number: "02",
 		title: "Messages Traverse the Mesh",
-		description: "Your encrypted message hops between nearby Bluetooth devices. Each relay extends your reach without ever decrypting the payload.",
+		description: "Your encrypted message hops between nearby devices with Yantagram installed. Each relay extends your reach without ever decrypting your message. The network remains functional during internet outages, natural disasters, or in regions with limited connectivity. ",
 	},
 	{
 		number: "03",
-		title: "Delivery Without Infrastructure",
-		description: "Messages arrive when devices are in range. The mesh self-heals around obstacles and offline nodes, with automatic retry and acknowledgment.",
+		title: "Internet Connectivity Available",
+		description: "Yantagram can use a relay server to send messages over the internet. Messages are always end-to-end encrypted and no data is permanently stored on the server. The relay server can be disabled in settings.",
 	},
 ];
 ---
@@ -21,8 +21,12 @@ const steps = [
 <section id="how-it-works">
 	<div class="container">
 		<div class="section-label">How It Works</div>
-		<h2>Three steps. Zero servers.</h2>
-		<p class="section-desc">Communication should be as simple as talking to someone next to you — just with stronger encryption.</p>
+		<h2>Why use Yantagram?</h2>
+		<p class="section-desc">
+            Traditional messaging apps depend on centralized infrastructure that can be monitored, censored, or disabled. 
+            Yantagram is a peer-to-peer messaging application that operates over bluetooth mesh networks. No internet, servers, or phone numbers required. 
+            Internet connectivity is available to extend range when you want it.
+        </p>
 
 		<div class="steps">
 			{steps.map((step) => (
@@ -36,7 +40,7 @@ const steps = [
 			))}
 		</div>
 
-		<div class="mesh-visual">
+		<!-- <div class="mesh-visual">
 			<svg viewBox="0 0 600 200" fill="none" class="mesh-svg">
 				<circle cx="80" cy="100" r="8" fill="var(--color-primary)" opacity="0.8"/>
 				<circle cx="180" cy="60" r="6" fill="var(--color-primary)" opacity="0.5"/>
@@ -57,7 +61,7 @@ const steps = [
 				<line x1="250" y1="140" x2="380" y2="120" stroke="var(--color-primary)" stroke-width="1" opacity="0.2"/>
 
 				<!-- Animated packets -->
-				<circle r="3" fill="var(--color-primary)">
+				<!-- <circle r="3" fill="var(--color-primary)">
 					<animateMotion dur="3s" repeatCount="indefinite" path="M80,100 L180,60 L300,80 L380,120 L520,100"/>
 				</circle>
 				<circle r="3" fill="var(--color-accent)" opacity="0.8">
@@ -68,13 +72,13 @@ const steps = [
 				<span class="mesh-dot"></span>
 				Live mesh relay visualization
 			</div>
-		</div>
+		</div> -->
 	</div>
 </section>
 
 <style>
 	#how-it-works {
-		padding: 140px 0;
+		padding: 100px 0;
 		border-top: 1px solid var(--color-surface-border);
 	}
 
@@ -104,7 +108,6 @@ const steps = [
 		display: flex;
 		flex-direction: column;
 		gap: 0;
-		margin-bottom: 80px;
 	}
 
 	.step {
