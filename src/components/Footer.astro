@@ -11,51 +11,22 @@ const currentYear = new Date().getFullYear();
 			</a>
 		</div>
 
-		<div class="footer-grid">
-			<div class="footer-brand">
-				<div class="brand-name">
-					<svg width="22" height="22" viewBox="0 0 40 40" fill="none">
-						<circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" opacity="0.4"/>
-						<circle cx="20" cy="20" r="6" fill="currentColor" opacity="0.6"/>
-					</svg>
-					<span>yantagram</span>
-				</div>
-				<p>Decentralized encrypted messaging over Bluetooth mesh.</p>
-			</div>
-
-			<div class="footer-links">
-				<div class="link-col">
-					<h4>Project</h4>
-					<a href="https://github.com/senecal-jjs/yantagram" target="_blank" rel="noopener">Source Code</a>
-					<a href="https://github.com/senecal-jjs/yantagram/blob/main/README.md" target="_blank" rel="noopener">Documentation</a>
-					<a href="https://github.com/senecal-jjs/yantagram/issues" target="_blank" rel="noopener">Issues</a>
-				</div>
-				<div class="link-col">
-					<h4>Protocol</h4>
-					<a href="https://github.com/senecal-jjs/yantagram/tree/main/beekem" target="_blank" rel="noopener">BeeKEM</a>
-					<a href="https://github.com/senecal-jjs/yantagram/tree/main/beekem-rust" target="_blank" rel="noopener">Rust Reference</a>
-					<a href="https://github.com/senecal-jjs/yantagram/blob/main/post-quantum-plan.md" target="_blank" rel="noopener">Post-Quantum Plan</a>
-				</div>
-			</div>
-		</div>
-
 		<div class="footer-bottom">
-			<span>&copy; {currentYear} Yantagram. MIT License.</span>
-			<span class="footer-disclaimer">Not formally audited. Use at your own discretion.</span>
+			<span>&copy; {currentYear} Yantagram.</span>
+			<span class="footer-disclaimer">Application security has not been formally audited. Use at your own discretion.</span>
 		</div>
 	</div>
 </footer>
 
 <style>
 	footer {
-		border-top: 1px solid var(--color-surface-border);
 		padding: 0 0 48px;
 	}
 
 	.footer-cta {
 		text-align: center;
 		padding: 100px 0 80px;
-		border-bottom: 1px solid var(--color-surface-border);
+		border-top: 1px solid var(--color-surface-border);
 		margin-bottom: 64px;
 	}
 
@@ -76,6 +47,7 @@ const currentYear = new Date().getFullYear();
 		align-items: center;
 		gap: 10px;
 		padding: 14px 28px;
+        margin-top: 20px;
 		background: var(--color-btn-solid-bg);
 		color: var(--color-btn-solid-text);
 		border-radius: var(--radius-md);
