@@ -15,12 +15,28 @@ const currentYear = new Date().getFullYear();
 			<span>&copy; {currentYear} Yantagram.</span>
 			<span class="footer-disclaimer">Application security has not been formally audited. Use at your own discretion.</span>
 		</div>
+
+		<div class="footer-terms">
+			<a href="/terms" class="footer-terms-button">Terms</a>
+			<a href="/privacy" class="footer-terms-button">Privacy</a>
+		</div>
 	</div>
 </footer>
 
 <style>
 	footer {
 		padding: 0 0 48px;
+	}
+
+	.footer-terms {
+		display: flex;
+		gap: 16px;
+		font-size: 0.8125rem;
+		color: var(--color-text-muted);
+	}
+
+	.footer-terms-button:hover {
+		color: var(--color-btn-solid-hover)
 	}
 
 	.footer-cta {
@@ -145,6 +161,12 @@ const currentYear = new Date().getFullYear();
 		}
 
 		.footer-bottom {
+			flex-direction: column;
+			gap: 8px;
+			text-align: center;
+		}
+
+		.footer-terms {
 			flex-direction: column;
 			gap: 8px;
 			text-align: center;

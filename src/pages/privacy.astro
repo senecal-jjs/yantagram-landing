@@ -1,0 +1,165 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<div class="container privacy-page">
+		<a href="/" class="home-link">&larr; Home</a>
+		<h1>Privacy Policy</h1>
+		<div class="effective-date">
+			<span class="label">Effective Date:</span>
+			<span>Jan 1, 2025</span>
+		</div>
+		<p>
+			Yantagram ("Yantagram", "we", "us", or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use,
+			and protect your information when you use Yantagram, our open-source messaging software. By using Yantagram, you agree to the terms of
+			this Privacy Policy. If you do not agree, you must not use the Software.
+		</p>
+
+		<ul>
+			<li>
+				<h2>1. Information We Collect</h2>
+				<p>
+					Yantagram is designed to operate in a decentralized, peer-to-peer environment and collects minimal personal information by default.
+					To improve the Software, we may collect anonymous usage data.
+				</p>
+
+				<strong>Anonymous Usage Data</strong>
+
+				<p>We may collect the following information:</p>
+				<ul class="disc-list">
+					<li>Feature usage statistics (e.g., which features are used).</li>
+					<li>Performance metrics (e.g., error reports or operation speeds).</li>
+					<li>General configuration settings (e.g., operating system and application version).</li>
+				</ul>
+			</li>
+
+			<li>
+				<h2>2. How We Use the Information</h2>
+				<p>We use anonymous usage data to:</p>
+				<ul class="disc-list">
+					<li>Understand user behavior to prioritize future updates.</li>
+					<li>Improve Yantagram's performance, stability, and features.</li>
+					<li>Identify and address bugs or technical issues.</li>
+				</ul>
+			</li>
+
+			<li>
+				<h2>3. How We Protect Your Information</h2>
+				<p>We take the following measures to protect any data we collect:</p>
+				<ul class="disc-list">
+					<li>Encryption: Any transmitted data is encrypted using industry-standard methods.</li>
+					<li>Limited Access: Only authorized personnel have access to collected data.</li>
+					<li>Storage: Anonymous usage data is stored securely in a database controlled by Yantagram.</li>
+				</ul>
+				<p>We do not sell, rent, or share your data with third parties.</p>
+			</li>
+
+			<li>
+				<h2>4. Your Rights</h2>
+				<p>
+					You have the right to stop using Yantagram at any time. Upon cessation of use, any personal identifying information pertaining to your
+					usage will be deleted from Yantagram's systems within three months.
+				</p>
+			</li>
+
+			<li>
+				<h2>5. Changes to This Policy</h2>
+				<p>
+					We may update this Privacy Policy from time to time. The latest version will always be available on our website. If significant changes
+					are made, we will notify you through the Software or our website.
+				</p>
+			</li>
+
+			<li>
+				<h2>6. Contact Information</h2>
+				<p>If you have any questions or concerns about this Privacy Policy, please contact us at: yantagram@proton.me</p>
+			</li>
+		</ul>
+	</div>
+</Layout>
+
+<style>
+	.privacy-page {
+		max-width: 800px;
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
+
+	.home-link {
+		display: inline-block;
+		margin-bottom: 2rem;
+		font-size: 0.9375rem;
+		font-weight: 500;
+		color: var(--color-text-muted);
+		transition: color 0.2s;
+	}
+
+	.home-link:hover {
+		color: var(--color-text);
+		text-decoration: none;
+	}
+
+	h1 {
+		font-size: 2rem;
+		font-weight: 700;
+		margin-bottom: 2rem;
+	}
+
+	.effective-date {
+		margin-bottom: 1rem;
+	}
+
+	.effective-date .label {
+		font-weight: 700;
+		margin-right: 0.25rem;
+	}
+
+	p {
+		margin-bottom: 1rem;
+		line-height: 1.7;
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	li {
+		margin-bottom: 1.5rem;
+	}
+
+	li h2 {
+		font-size: 1.125rem;
+		font-weight: 700;
+		margin-bottom: 0.5rem;
+	}
+
+	li p {
+		margin-bottom: 0.5rem;
+	}
+
+	strong {
+		display: block;
+		margin: 0.75rem 0 0.25rem;
+	}
+
+	.disc-list {
+		list-style: disc;
+		padding-left: 2rem;
+		margin-bottom: 1rem;
+	}
+
+	.disc-list li {
+		margin-bottom: 0.25rem;
+	}
+
+	a {
+		color: var(--color-primary);
+		text-decoration: underline;
+	}
+
+	a:hover {
+		opacity: 0.8;
+	}
+</style>

@@ -1,0 +1,186 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<div class="container terms-page">
+		<a href="/" class="home-link">&larr; Home</a>
+		<h1>Terms of Service</h1>
+		<div class="effective-date">
+			<span class="label">Effective Date:</span>
+			<span>Jan 1, 2025</span>
+		</div>
+		<p>
+			Yantagram is open-source software developed and maintained by Yantagram ("Yantagram", "we", "us", or "our"). By downloading,
+			installing, or using Yantagram ("Software"), you ("user", "you", or "your") agree to these Terms of Service ("Terms"). Please read them
+			carefully before using Yantagram. If you do not agree to these Terms, you must not download, install, or use the Software.
+		</p>
+
+		<ul>
+			<li>
+				<h2>1. License Grant</h2>
+				<p>
+					Subject to your compliance with these Terms and the license referenced below, we grant you a limited, non-exclusive, non-transferable,
+					revocable license to download, install, and use Yantagram for your personal or internal business purposes. This license does not grant you
+					any ownership rights to the Software.
+				</p>
+			</li>
+
+			<li>
+				<h2>2. License Restrictions</h2>
+				<p>
+					Your use of the Software must comply with the terms of the license. Specifically, you agree not to: Use Yantagram in violation of the terms
+					of the license. Remove or obscure any copyright, trademark, or other proprietary notices included in the Software.
+				</p>
+				<p>
+					THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+					MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR
+					ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+					SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+				</p>
+			</li>
+
+			<li>
+				<h2>3. Ownership and Intellectual Property</h2>
+				<p>
+					Yantagram, including all intellectual property rights, is and remains the sole property of Yantagram. All rights not expressly granted to
+					you under these Terms are reserved by Yantagram.
+				</p>
+			</li>
+
+			<li>
+				<h2>4. Updates and Support</h2>
+				<p>
+					We may, from time to time, release updates, bug fixes, or improvements to Yantagram ("Updates"). You agree that Updates may be installed
+					automatically. We are not obligated to provide technical support but may choose to do so at our discretion.
+				</p>
+			</li>
+
+			<li>
+				<h2>5. Privacy and Data Collection</h2>
+				<p>
+					Yantagram only transmits data necessary to proper functioning of the software. We may collect telemetry or licensing data during activation
+					or updates. For more details, please review our <a href="/privacy">Privacy Policy</a>.
+				</p>
+			</li>
+
+			<li>
+				<h2>6. Disclaimer of Warranties</h2>
+				<p>
+					Yantagram is provided "as is" without warranties of any kind, either express or implied. To the fullest extent permitted by law, we disclaim
+					all warranties, including but not limited to implied warranties of merchantability, fitness for a particular purpose, and
+					non-infringement. We do not guarantee that Yantagram will meet your requirements, operate uninterrupted, or be error-free.
+				</p>
+			</li>
+
+			<li>
+				<h2>7. Limitation of Liability</h2>
+				<p>
+					To the fullest extent permitted by law, Yantagram will not be liable for any indirect, incidental, special, consequential, or punitive
+					damages, including but not limited to loss of profits, data, or business opportunities, arising from or related to your use of Yantagram.
+					Our total liability under these Terms is limited to the amount you paid for Yantagram in the 12 months preceding the claim.
+				</p>
+			</li>
+
+			<li>
+				<h2>8. Termination</h2>
+				<p>
+					These Terms are effective until terminated by either party. You may terminate these Terms by ceasing all use of Yantagram and deleting your
+					account. We may terminate your license at any time if you violate these Terms. Upon termination, you must delete your Yantagram account.
+				</p>
+			</li>
+
+			<li>
+				<h2>9. Governing Law</h2>
+				<p>
+					These Terms are governed by and construed in accordance with the laws of the State of [Insert State], without regard to its conflict of
+					law principles. Any disputes arising out of or related to these Terms will be resolved exclusively in the courts located in [Insert
+					Jurisdiction].
+				</p>
+			</li>
+
+			<li>
+				<h2>10. Changes to These Terms</h2>
+				<p>
+					We may update these Terms from time to time. The most current version will be available on our website. By continuing to use Yantagram after
+					changes to the Terms become effective, you agree to be bound by the updated Terms.
+				</p>
+			</li>
+
+			<li>
+				<h2>11. Contact Information</h2>
+				<p>If you have any questions about these Terms, please contact us at: yantagram@proton.me</p>
+			</li>
+		</ul>
+	</div>
+</Layout>
+
+<style>
+	.terms-page {
+		max-width: 800px;
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
+
+	.home-link {
+		display: inline-block;
+		margin-bottom: 2rem;
+		font-size: 0.9375rem;
+		font-weight: 500;
+		color: var(--color-text-muted);
+		transition: color 0.2s;
+	}
+
+	.home-link:hover {
+		color: var(--color-text);
+		text-decoration: none;
+	}
+
+	h1 {
+		font-size: 2rem;
+		font-weight: 700;
+		margin-bottom: 2rem;
+	}
+
+	.effective-date {
+		margin-bottom: 1rem;
+	}
+
+	.effective-date .label {
+		font-weight: 700;
+		margin-right: 0.25rem;
+	}
+
+	p {
+		margin-bottom: 1rem;
+		line-height: 1.7;
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	li {
+		margin-bottom: 1.5rem;
+	}
+
+	li h2 {
+		font-size: 1.125rem;
+		font-weight: 700;
+		margin-bottom: 0.5rem;
+	}
+
+	li p {
+		margin-bottom: 0.5rem;
+	}
+
+	a {
+		color: var(--color-primary);
+		text-decoration: underline;
+	}
+
+	a:hover {
+		opacity: 0.8;
+	}
+</style>
