@@ -13,4 +13,217 @@ import Layout from '../layouts/Layout.astro';
 	<Features />
 	<Security />
 	<Footer />
+
+	<div class="beta-modal" id="beta-modal" hidden>
+		<div class="beta-modal__backdrop" data-close-beta-modal></div>
+		<div
+			class="beta-modal__dialog"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="beta-modal-title"
+			aria-describedby="beta-modal-description"
+		>
+			<button type="button" class="beta-modal__close" aria-label="Close beta modal" data-close-beta-modal>
+				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<line x1="18" y1="6" x2="6" y2="18"></line>
+					<line x1="6" y1="6" x2="18" y2="18"></line>
+				</svg>
+			</button>
+
+			<p class="beta-modal__eyebrow">Private beta</p>
+			<h2 id="beta-modal-title">Yantagram is currently in private beta.</h2>
+			<p id="beta-modal-description">
+				If you would like to join the beta test, send an email request to dev@yantagram.com and we will follow up with access details.
+			</p>
+
+			<div class="beta-modal__actions">
+				<a
+					href="mailto:dev@yantagram.com?subject=Yantagram%20Beta%20Request&body=Hi%20Yantagram%20team%2C%0A%0AI%20would%20like%20to%20join%20the%20private%20beta.%0A%0AName%3A%0APlatform%20(iOS%2FAndroid)%3A%0A%0AThanks%21"
+					class="beta-modal__primary"
+				>
+					Email dev@yantagram.com
+				</a>
+			</div>
+		</div>
+	</div>
 </Layout>
+
+<style>
+	.beta-modal[hidden] {
+		display: none;
+	}
+
+	.beta-modal {
+		position: fixed;
+		inset: 0;
+		z-index: 1200;
+		display: grid;
+		place-items: center;
+		padding: 20px;
+	}
+
+	.beta-modal__backdrop {
+		position: absolute;
+		inset: 0;
+		background: rgba(3, 6, 10, 0.7);
+		backdrop-filter: blur(8px);
+	}
+
+	.beta-modal__dialog {
+		position: relative;
+		z-index: 1;
+		width: min(560px, 100%);
+		padding: 28px;
+		border-radius: var(--radius-lg);
+		border: 1px solid var(--color-surface-border);
+		background: linear-gradient(165deg, var(--color-surface-raised) 0%, var(--color-surface) 100%);
+		box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+	}
+
+	.beta-modal__close {
+		position: absolute;
+		top: 12px;
+		right: 12px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 34px;
+		height: 34px;
+		border: 1px solid var(--color-surface-border);
+		border-radius: 999px;
+		background: transparent;
+		color: var(--color-text-muted);
+		cursor: pointer;
+		transition: border-color 0.2s, color 0.2s, background 0.2s;
+	}
+
+	.beta-modal__close:hover {
+		border-color: var(--color-primary);
+		color: var(--color-text);
+		background: var(--color-primary-dim);
+	}
+
+	.beta-modal__eyebrow {
+		display: inline-flex;
+		padding: 5px 10px;
+		margin-bottom: 12px;
+		border-radius: 999px;
+		background: var(--color-primary-dim);
+		color: var(--color-primary);
+		font-size: 0.78rem;
+		font-weight: 600;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+	}
+
+	.beta-modal h2 {
+		font-size: clamp(1.3rem, 3vw, 1.8rem);
+		margin-bottom: 12px;
+	}
+
+	.beta-modal p {
+		color: var(--color-text-muted);
+		line-height: 1.7;
+		font-size: 1rem;
+	}
+
+	.beta-modal__actions {
+		display: flex;
+		justify-content: center;
+		gap: 12px;
+		flex-wrap: wrap;
+		margin-top: 24px;
+	}
+
+	.beta-modal__primary {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 11px 18px;
+		border-radius: var(--radius-sm);
+		font-weight: 600;
+		font-size: 0.92rem;
+		text-decoration: none;
+		transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
+		background: var(--color-btn-solid-bg);
+		color: var(--color-btn-solid-text);
+		border: 1px solid transparent;
+	}
+
+	.beta-modal__primary:hover {
+		background: var(--color-btn-solid-hover);
+		transform: translateY(-1px);
+		box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+	}
+
+	body.beta-modal-open {
+		overflow: hidden;
+	}
+
+	@media (max-width: 640px) {
+		.beta-modal {
+			padding: 16px;
+		}
+
+		.beta-modal__dialog {
+			padding: 24px 18px 18px;
+		}
+
+		.beta-modal__actions {
+			flex-direction: column;
+		}
+
+		.beta-modal__primary {
+			width: 100%;
+		}
+	}
+</style>
+
+<script is:inline>
+	(function() {
+		var modal = document.getElementById('beta-modal');
+		if (!modal) {
+			return;
+		}
+
+		var openers = document.querySelectorAll('[data-open-beta-modal]');
+		var closers = modal.querySelectorAll('[data-close-beta-modal]');
+		var firstFocusable = modal.querySelector('.beta-modal__close');
+		var lastTrigger = null;
+
+		function openModal(trigger) {
+			lastTrigger = trigger || document.activeElement;
+			modal.hidden = false;
+			document.body.classList.add('beta-modal-open');
+			if (firstFocusable) {
+				firstFocusable.focus();
+			}
+		}
+
+		function closeModal() {
+			modal.hidden = true;
+			document.body.classList.remove('beta-modal-open');
+			if (lastTrigger && typeof lastTrigger.focus === 'function') {
+				lastTrigger.focus();
+			}
+		}
+
+		openers.forEach(function(opener) {
+			opener.addEventListener('click', function() {
+				openModal(opener);
+			});
+		});
+
+		closers.forEach(function(closer) {
+			closer.addEventListener('click', function() {
+				closeModal();
+			});
+		});
+
+		document.addEventListener('keydown', function(event) {
+			if (event.key === 'Escape' && !modal.hidden) {
+				closeModal();
+			}
+		});
+	})();
+</script>
