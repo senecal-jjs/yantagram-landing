@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+	src: ImageMetadata;
+	alt: string;
+	width?: number;
+	loading?: 'eager' | 'lazy';
+	class?: string;
+}
+
+const { src, alt, width = 320, loading = 'lazy', class: className } = Astro.props;
+---
+
+<div class:list={['phone', className]} style={`--phone-width: ${width}px`}>
+	<Image
+		src={src}
+		alt={alt}
+		widths={[width, width * 2]}
+		sizes={`${width}px`}
+		loading={loading}
+		format="webp"
+		quality={82}
+	/>
+</div>
+
+<style>
+	.phone {
+		width: min(var(--phone-width), 100%);
+		padding: 8px;
+		border-radius: 46px;
+		background: linear-gradient(160deg, #2a2470 0%, #0d0a33 60%);
+		border: 1px solid rgba(160, 140, 255, 0.18);
+		box-shadow:
+			0 40px 80px -20px rgba(6, 4, 30, 0.7),
+			0 0 60px -10px rgba(123, 71, 241, 0.35);
+	}
+
+	.phone :global(img) {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 1170 / 2532;
+		border-radius: 38px;
+		display: block;
+	}
+</style>

@@ -4,14 +4,14 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="Yantagram — Decentralized, encrypted peer-to-peer messaging over Bluetooth mesh. No servers. No internet. No compromises." />
-		<meta name="theme-color" content="#050a0e" />
+		<meta name="theme-color" content="#120e40" />
 		<meta property="og:title" content="Yantagram — Off-Grid Encrypted Messaging" />
 		<meta property="og:description" content="Communicate securely over Bluetooth mesh without servers or internet. End-to-end encrypted by default." />
 		<meta property="og:type" content="website" />
 		<link rel="icon" type="image/svg+xml" href="/yanta-favicon.svg" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 		<title>Yantagram — Off-Grid Encrypted Messaging</title>
 		<script is:inline>
 			(function() {
@@ -29,46 +29,60 @@
 
 <style is:global>
 	:root {
-		--color-primary: #22d3ee;
-		--color-primary-dim: rgba(34, 211, 238, 0.12);
-		--color-primary-glow: rgba(34, 211, 238, 0.35);
-		--color-accent: #a78bfa;
-		--color-accent-dim: rgba(167, 139, 250, 0.12);
-		--color-surface: #0c1219;
-		--color-surface-raised: #121c27;
-		--color-surface-border: rgba(255, 255, 255, 0.06);
-		--color-bg: #050a0e;
-		--color-text: #cbd5e1;
-		--color-text-muted: #64748b;
-		--color-heading: #f1f5f9;
-		--color-btn-solid-bg: #f1f5f9;
-		--color-btn-solid-text: #050a0e;
-		--color-btn-solid-hover: #ffffff;
-		--font-sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+		--color-primary: #8b5cf6;
+		--color-primary-strong: #7b47f1;
+		--color-primary-dim: rgba(139, 92, 246, 0.16);
+		--color-primary-glow: rgba(123, 71, 241, 0.45);
+		--gradient-primary: linear-gradient(90deg, #6c3ff1 0%, #9a5af6 100%);
+		--color-accent: #2dc1e5;
+		--color-accent-dim: rgba(45, 193, 229, 0.14);
+		--color-success: #40c49c;
+		--color-danger: #fb5968;
+		--color-warning: #f0b429;
+		--color-surface: #1f1a5c;
+		--color-surface-raised: #29237a;
+		--color-surface-border: rgba(160, 140, 255, 0.12);
+		--color-bg: #120e40;
+		--color-bg-deep: #0c0930;
+		--color-text: #d9d6f5;
+		--color-text-muted: #8f8bc4;
+		--color-label: #7d78b8;
+		--color-heading: #ffffff;
+		--color-btn-solid-bg: #ffffff;
+		--color-btn-solid-text: #120e40;
+		--color-btn-solid-hover: #f1efff;
+		--font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 		--font-mono: 'JetBrains Mono', 'SF Mono', monospace;
-		--radius-sm: 8px;
-		--radius-md: 12px;
-		--radius-lg: 20px;
-		--radius-xl: 28px;
-		--max-width: 1140px;
+		--radius-sm: 14px;
+		--radius-md: 20px;
+		--radius-lg: 28px;
+		--radius-xl: 36px;
+		--radius-pill: 999px;
+		--max-width: 1160px;
 	}
 
 	[data-theme="light"] {
-		--color-primary: #0891b2;
-		--color-primary-dim: rgba(8, 145, 178, 0.1);
-		--color-primary-glow: rgba(8, 145, 178, 0.2);
-		--color-accent: #7c3aed;
-		--color-accent-dim: rgba(124, 58, 237, 0.08);
+		--color-primary: #6c3ff1;
+		--color-primary-strong: #5b2fe0;
+		--color-primary-dim: rgba(108, 63, 241, 0.1);
+		--color-primary-glow: rgba(108, 63, 241, 0.28);
+		--color-accent: #0e9fc4;
+		--color-accent-dim: rgba(14, 159, 196, 0.1);
+		--color-success: #1f9f7a;
+		--color-danger: #e0364a;
+		--color-warning: #c98a06;
 		--color-surface: #ffffff;
-		--color-surface-raised: #f8fafc;
-		--color-surface-border: rgba(0, 0, 0, 0.07);
-		--color-bg: #f1f5f9;
-		--color-text: #334155;
-		--color-text-muted: #64748b;
-		--color-heading: #0f172a;
-		--color-btn-solid-bg: #0f172a;
+		--color-surface-raised: #f6f4ff;
+		--color-surface-border: rgba(72, 52, 190, 0.1);
+		--color-bg: #efedff;
+		--color-bg-deep: #e6e2ff;
+		--color-text: #3b3670;
+		--color-text-muted: #6e6aa0;
+		--color-label: #7d78b8;
+		--color-heading: #16123f;
+		--color-btn-solid-bg: #16123f;
 		--color-btn-solid-text: #ffffff;
-		--color-btn-solid-hover: #1e293b;
+		--color-btn-solid-hover: #241e5e;
 	}
 
 	*,
@@ -94,8 +108,9 @@
 	}
 
 	h1, h2, h3, h4 {
-		line-height: 1.1;
-		letter-spacing: -0.025em;
+		line-height: 1.15;
+		letter-spacing: -0.02em;
+		font-weight: 600;
 		color: var(--color-heading);
 	}
 
@@ -124,6 +139,52 @@
 	::selection {
 		background: var(--color-primary-dim);
 		color: var(--color-primary);
+	}
+
+	.section-label {
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.16em;
+		color: var(--color-label);
+		margin-bottom: 16px;
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		padding: 15px 30px;
+		border: none;
+		border-radius: var(--radius-pill);
+		font-family: inherit;
+		font-weight: 600;
+		font-size: 1rem;
+		cursor: pointer;
+		transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
+	}
+
+	.btn-primary {
+		background: var(--gradient-primary);
+		color: #ffffff;
+		box-shadow: 0 10px 36px -8px var(--color-primary-glow);
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-1px);
+		box-shadow: 0 14px 44px -6px var(--color-primary-glow);
+	}
+
+	.btn-surface {
+		background: var(--color-surface);
+		color: var(--color-text);
+		border: 1px solid var(--color-surface-border);
+	}
+
+	.btn-surface:hover {
+		background: var(--color-surface-raised);
+		color: var(--color-heading);
 	}
 
 	@keyframes fadeUp {

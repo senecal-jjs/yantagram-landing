@@ -6,7 +6,7 @@ const currentYear = new Date().getFullYear();
 	<div class="container">
 		<div class="footer-cta">
 			<h2>Ready to communicate freely?</h2>
-			<button type="button" class="footer-btn" data-open-beta-modal>
+			<button type="button" class="btn btn-primary footer-btn" data-open-beta-modal>
 				Get Yantagram
 			</button>
 		</div>
@@ -36,14 +36,18 @@ const currentYear = new Date().getFullYear();
 	}
 
 	.footer-terms-button:hover {
-		color: var(--color-btn-solid-hover)
+		color: var(--color-heading);
 	}
 
 	.footer-cta {
 		text-align: center;
-		padding: 100px 0 80px;
-		border-top: 1px solid var(--color-surface-border);
-		margin-bottom: 64px;
+		padding: 72px 24px;
+		margin-bottom: 48px;
+		background:
+			radial-gradient(ellipse 60% 90% at 50% 0%, var(--color-primary-dim) 0%, transparent 100%),
+			var(--color-surface);
+		border: 1px solid var(--color-surface-border);
+		border-radius: var(--radius-xl);
 	}
 
 	.footer-cta h2 {
@@ -59,23 +63,7 @@ const currentYear = new Date().getFullYear();
 	}
 
 	.footer-btn {
-		display: inline-flex;
-		align-items: center;
-		gap: 10px;
-		padding: 14px 28px;
-        margin-top: 20px;
-		background: var(--color-btn-solid-bg);
-		color: var(--color-btn-solid-text);
-		border-radius: var(--radius-md);
-		font-weight: 600;
-		font-size: 0.9375rem;
-		transition: all 0.25s;
-	}
-
-	.footer-btn:hover {
-		background: var(--color-btn-solid-hover);
-		transform: translateY(-1px);
-		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+		margin-top: 20px;
 	}
 
 	.footer-grid {
@@ -140,8 +128,7 @@ const currentYear = new Date().getFullYear();
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding-top: 32px;
-		border-top: 1px solid var(--color-surface-border);
+		margin-bottom: 12px;
 		font-size: 0.8125rem;
 		color: var(--color-text-muted);
 	}

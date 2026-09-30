@@ -1,4 +1,6 @@
 ---
+import PhoneFrame from './PhoneFrame.astro';
+import contactScreen from '../assets/screens/contact.jpg';
 ---
 
 <section id="security">
@@ -17,31 +19,26 @@
 
 				<div class="security-highlights">
 					<div class="highlight">
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
 						<span>Zero-knowledge relay — nodes can't decrypt traffic</span>
 					</div>
 					<div class="highlight">
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
 						<span>Forward secrecy via continuous key rotation</span>
 					</div>
 					<div class="highlight">
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
 						<span>Out-of-band identity verification via QR</span>
 					</div>
 				</div>
 			</div>
 
-			<div class="security-icon">
-				<svg width="280" height="280" viewBox="0 0 24 24" fill="none" stroke="url(#shieldGrad)" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round">
-					<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-					<path d="M9 12l2 2 4-4" stroke-width="1"/>
-					<defs>
-						<linearGradient id="shieldGrad" x1="4" y1="2" x2="20" y2="22">
-							<stop stop-color="var(--color-primary)"/>
-							<stop offset="1" stop-color="var(--color-accent)"/>
-						</linearGradient>
-					</defs>
-				</svg>
+			<div class="security-phone">
+				<PhoneFrame
+					src={contactScreen}
+					alt="Yantagram contact details showing a verification key and a contact verified in person"
+					width={300}
+				/>
 			</div>
 		</div>
 	</div>
@@ -49,24 +46,20 @@
 
 <style>
 	#security {
-		padding: 140px 0;
-		border-top: 1px solid var(--color-surface-border);
+		padding: 100px 0 120px;
 	}
 
 	.security-layout {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr auto;
 		gap: 80px;
-		align-items: start;
-	}
-
-	.section-label {
-		font-size: 0.75rem;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		color: var(--color-accent);
-		margin-bottom: 16px;
+		align-items: center;
+		padding: 64px;
+		background:
+			radial-gradient(ellipse 60% 70% at 100% 50%, var(--color-primary-dim) 0%, transparent 100%),
+			var(--color-bg-deep);
+		border: 1px solid var(--color-surface-border);
+		border-radius: var(--radius-xl);
 	}
 
 	.security-text h2 {
@@ -79,53 +72,61 @@
 		color: var(--color-text-muted);
 		margin-bottom: 16px;
 		line-height: 1.75;
-	}
-
-	.security-text strong {
-		color: var(--color-text);
+		max-width: 540px;
 	}
 
 	.security-highlights {
 		display: flex;
 		flex-direction: column;
-		gap: 12px;
+		gap: 10px;
 		margin-top: 32px;
 	}
 
 	.highlight {
 		display: flex;
 		align-items: center;
-		gap: 12px;
-		font-size: 0.875rem;
+		gap: 14px;
+		padding: 14px 18px;
+		background: var(--color-surface);
+		border: 1px solid var(--color-surface-border);
+		border-radius: var(--radius-md);
+		font-size: 0.9375rem;
 		color: var(--color-text);
 	}
 
-	.security-icon {
+	.highlight svg {
+		flex-shrink: 0;
+		box-sizing: content-box;
+		padding: 7px;
+		border-radius: 50%;
+		background: color-mix(in srgb, var(--color-success) 16%, transparent);
+		color: var(--color-success);
+	}
+
+	.security-phone {
 		display: flex;
-		align-items: center;
 		justify-content: center;
-		opacity: 0.85;
 	}
 
 	@media (max-width: 1024px) {
 		.security-layout {
 			grid-template-columns: 1fr;
 			gap: 48px;
-		}
-
-		.security-icon {
-			order: -1;
-		}
-
-		.security-icon svg {
-			width: 180px;
-			height: 180px;
+			padding: 48px 32px;
 		}
 	}
 
 	@media (max-width: 640px) {
 		#security {
-			padding: 100px 0;
+			padding: 60px 0 80px;
+		}
+
+		.security-layout {
+			padding: 36px 20px;
+		}
+
+		.security-phone :global(.phone) {
+			width: 78%;
 		}
 	}
 </style>
