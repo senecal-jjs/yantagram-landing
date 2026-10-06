@@ -1,5 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+// TODO: fill in before publishing.
+const company = 'Yantagram';
+const effectiveDate = 'October 5, 2026';
 ---
 
 <Layout>
@@ -8,72 +12,205 @@ import Layout from '../layouts/Layout.astro';
 		<h1>Privacy Policy</h1>
 		<div class="effective-date">
 			<span class="label">Effective Date:</span>
-			<span>June 8, 2026</span>
+			<span>{effectiveDate}</span>
 		</div>
 		<p>
-			Yantagram ("Yantagram", "we", "us", or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use,
-			and protect your information when you use Yantagram, our open-source messaging software. By using Yantagram, you agree to the terms of
-			this Privacy Policy. If you do not agree, you must not use the Software.
+			This Privacy Policy explains what information {company} ("Yantagram", "we", "us", or "our") handles when you use the Yantagram mobile
+			application, the optional internet relay and push notification services, and this website (together, the "Services"). It should be read
+			together with our <a href="/terms">Terms of Service</a>.
+		</p>
+		<p>
+			<strong>In short:</strong> Yantagram is designed so that we know as little about you as possible. There are no accounts, and we do not ask
+			for your name, phone number, or email. Your messages are end-to-end encrypted and stored only on your device. We do not use analytics,
+			advertising, or tracking tools, and we do not sell or share your personal information.
 		</p>
 
 		<ul>
 			<li>
-				<h2>1. Information We Collect</h2>
+				<h2>1. Information Stored Only on Your Device</h2>
 				<p>
-					Yantagram is designed to operate in a decentralized, peer-to-peer environment and collects minimal personal information by default.
-					To improve the Software, we may collect anonymous usage data.
+					The following information is created and stored on your device, in encrypted storage. We do not collect it and cannot access it:
 				</p>
-
-				<strong>Anonymous Usage Data</strong>
-
-				<p>We may collect the following information:</p>
 				<ul class="disc-list">
-					<li>Feature usage statistics (e.g., which features are used).</li>
-					<li>Performance metrics (e.g., error reports or operation speeds).</li>
-					<li>General configuration settings (e.g., operating system and application version).</li>
+					<li>your identity and encryption keys;</li>
+					<li>your contacts, groups, and the display names you choose;</li>
+					<li>your messages, images, and conversation history; and</li>
+					<li>your settings and any in-app purchase status.</li>
 				</ul>
-			</li>
-
-			<li>
-				<h2>2. How We Use the Information</h2>
-				<p>We use anonymous usage data to:</p>
-				<ul class="disc-list">
-					<li>Understand user behavior to prioritize future updates.</li>
-					<li>Improve Yantagram's performance, stability, and features.</li>
-					<li>Identify and address bugs or technical issues.</li>
-				</ul>
-			</li>
-
-			<li>
-				<h2>3. How We Protect Your Information</h2>
-				<p>We take the following measures to protect any data we collect:</p>
-				<ul class="disc-list">
-					<li>Encryption: Any transmitted data is encrypted using industry-standard methods.</li>
-					<li>Limited Access: Only authorized personnel have access to collected data.</li>
-					<li>Storage: Anonymous usage data is stored securely in a database controlled by Yantagram.</li>
-				</ul>
-				<p>We do not sell, rent, or share your data with third parties.</p>
-			</li>
-
-			<li>
-				<h2>4. Your Rights</h2>
 				<p>
-					You have the right to stop using Yantagram at any time. Upon cessation of use, any personal identifying information pertaining to your
-					usage will be deleted from Yantagram's systems within three months.
+					This information is deleted when messages expire under your disappearing message settings, when you use the panic wipe, or when you
+					uninstall the application. Because we never receive it, we cannot recover it for you.
 				</p>
 			</li>
 
 			<li>
-				<h2>5. Changes to This Policy</h2>
+				<h2>2. Device Permissions</h2>
+				<p>The application asks for these permissions, and uses them only on your device:</p>
+				<ul class="disc-list">
+					<li><strong>Bluetooth</strong>, to discover and exchange encrypted messages with nearby devices.</li>
+					<li><strong>Camera</strong>, to scan QR codes to add and verify contacts.</li>
+					<li><strong>Photos</strong>, to let you choose images to send, or save images you receive.</li>
+					<li><strong>Notifications</strong>, to alert you when new messages arrive.</li>
+				</ul>
+				<p>You can change these permissions at any time in your device settings, though some features may stop working.</p>
+			</li>
+
+			<li>
+				<h2>3. Information Visible to Nearby Devices</h2>
 				<p>
-					We may update this Privacy Policy from time to time. The latest version will always be available on our website. If significant changes
-					are made, we will notify you through the Software or our website.
+					To form the Bluetooth mesh, your device broadcasts signals that other nearby devices running Yantagram can detect, including a device
+					identifier, and it forwards encrypted messages for other users. Nearby devices can observe that a Yantagram device is present and the
+					timing and size of encrypted traffic, but they cannot read your messages. Any device can be operated by anyone, and we do not control
+					what other users do with what their devices observe.
 				</p>
 			</li>
 
 			<li>
-				<h2>6. Contact Information</h2>
-				<p>If you have any questions or concerns about this Privacy Policy, please contact us at: dev@yantagram.com</p>
+				<h2>4. Internet Relay</h2>
+				<p>
+					When the internet relay is enabled, the application sends encrypted messages through relay servers so they can reach contacts who are not
+					nearby. You can turn the relay off in the application's settings. When it is on, the relay we operate receives:
+				</p>
+				<ul class="disc-list">
+					<li><strong>Encrypted messages</strong>, which we cannot read;</li>
+					<li><strong>Routing tags</strong>, random-looking values that change every day and are not linked to your identity; and</li>
+					<li><strong>Your IP address and connection times</strong>, which are necessary to deliver network traffic and to prevent abuse.</li>
+				</ul>
+				<p>
+					Encrypted messages are set to expire and are deleted from the relay within 7 days. If you add third-party relays in the application's
+					settings, those relays are operated by others under their own policies, and we are not responsible for how they handle data.
+				</p>
+			</li>
+
+			<li>
+				<h2>5. Push Notifications</h2>
+				<p>
+					When the internet relay is enabled, the application registers with our push notification service so your device can be woken when a
+					message arrives for it. The service stores your device's push token, its platform (iOS or Android), and the routing tags described above.
+					It never receives your identity, contacts, or message contents. Your registration is deleted when you turn the relay off, or automatically
+					if it is not refreshed for 14 days.
+				</p>
+				<p>
+					Push notifications are delivered by Apple Push Notification service or Google Firebase Cloud Messaging, which process your push token
+					under their own privacy policies. Notifications we send do not contain message contents.
+				</p>
+			</li>
+
+			<li>
+				<h2>6. Purchases</h2>
+				<p>
+					Optional in-app purchases are processed by the Apple App Store or Google Play. We do not receive your name, payment details, or billing
+					address. Purchases are verified on your device and are not linked to your Yantagram identity. Apple and Google handle purchase data under
+					their own privacy policies.
+				</p>
+			</li>
+
+			<li>
+				<h2>7. Communications With Us</h2>
+				<p>
+					If you email us, for example to request beta access or ask for support, we receive your email address and whatever you choose to include.
+					We use it only to respond to you and to manage the beta, and we delete it when it is no longer needed for those purposes.
+				</p>
+			</li>
+
+			<li>
+				<h2>8. This Website</h2>
+				<p>
+					This website does not use cookies, analytics, or tracking tools. It stores your light or dark theme preference in your browser's local
+					storage. Our hosting provider processes your IP address and standard request information to deliver the website, and fonts are loaded from
+					Google Fonts, which receives your IP address when your browser requests them.
+				</p>
+			</li>
+
+			<li>
+				<h2>9. How We Use and Share Information</h2>
+				<p>
+					We use the limited information described above only to provide, operate, secure, and improve the Services, prevent abuse, respond to you,
+					and comply with the law. We do not sell or "share" personal information as those terms are defined under California law, and we do not use
+					it for advertising or profiling.
+				</p>
+				<p>We disclose information only:</p>
+				<ul class="disc-list">
+					<li>to service providers that host or deliver the Services on our behalf, such as our cloud hosting provider and Apple and Google for push notifications;</li>
+					<li>when we believe in good faith that disclosure is required by law, legal process, or a government request, or is necessary to protect the rights, safety, or property of users, the public, or us; and</li>
+					<li>in connection with a merger, acquisition, or sale of assets, in which case this Privacy Policy will continue to apply to the information transferred.</li>
+				</ul>
+				<p>
+					Because of how Yantagram is designed, we hold very little information to disclose, and we cannot provide message contents, contacts, or
+					identities, because we do not have them.
+				</p>
+			</li>
+
+			<li>
+				<h2>10. Data Retention</h2>
+				<ul class="disc-list">
+					<li>Encrypted messages on our relay: deleted within 7 days.</li>
+					<li>Push registrations: deleted when you turn the relay off, or 14 days after they were last refreshed.</li>
+					<li>IP addresses: processed to deliver traffic and enforce rate limits, and not kept longer than needed for those purposes, except where needed to investigate abuse or comply with the law.</li>
+					<li>Emails: kept only as long as needed to respond to you or manage the beta.</li>
+				</ul>
+			</li>
+
+			<li>
+				<h2>11. Security</h2>
+				<p>
+					Messages are end-to-end encrypted, and data on your device is stored in encrypted form. However, no method of transmission or storage is
+					completely secure, and Yantagram's security has not been formally audited by an independent third party. We cannot guarantee the security
+					of any information.
+				</p>
+			</li>
+
+			<li>
+				<h2>12. Your Rights and Choices</h2>
+				<p>
+					Depending on where you live, you may have the right to access, correct, delete, or receive a copy of your personal information, to object
+					to or restrict certain processing, and to withdraw consent. We will not discriminate against you for exercising these rights.
+				</p>
+				<p>
+					Because Yantagram has no accounts, most of your data is under your direct control: you can turn off the relay to delete your push
+					registration, use the panic wipe, or uninstall the application to delete everything on your device. For other requests, contact us at
+					dev@yantagram.com. Because we do not link the information we hold to an identity, we may be unable to locate information about you, and
+					we may need to ask you for information to verify a request. You may also have the right to complain to your local data protection
+					authority.
+				</p>
+				<p>
+					Where the GDPR or similar laws apply, we process information on the basis of performing our contract with you (to deliver messages and
+					notifications), our legitimate interests (to secure the Services and prevent abuse), and compliance with legal obligations.
+				</p>
+			</li>
+
+			<li>
+				<h2>13. International Users</h2>
+				<p>
+					Our relay and push notification servers are located in the United States. If you use the Services from outside the United States, the
+					limited information described in this policy will be transferred to and processed in the United States, where data protection laws may
+					differ from those in your country.
+				</p>
+			</li>
+
+			<li>
+				<h2>14. Children</h2>
+				<p>
+					The Services are not directed to children under 13, and we do not knowingly collect personal information from children under 13 (or the
+					higher minimum age that applies in your country). If you believe a child has provided us with personal information, contact us and we will
+					delete it.
+				</p>
+			</li>
+
+			<li>
+				<h2>15. Changes to This Policy</h2>
+				<p>
+					We may update this Privacy Policy from time to time. The current version will always be posted on this page with its effective date. If we
+					make material changes, we will make reasonable efforts to notify you, for example through the application or this website.
+				</p>
+			</li>
+
+			<li>
+				<h2>16. Contact</h2>
+				<p>
+					If you have any questions or requests about this Privacy Policy, contact us at
+					<a href="mailto:dev@yantagram.com">dev@yantagram.com</a>.
+				</p>
 			</li>
 		</ul>
 	</div>
@@ -140,8 +277,7 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	strong {
-		display: block;
-		margin: 0.75rem 0 0.25rem;
+		color: var(--color-heading);
 	}
 
 	.disc-list {
