@@ -1,0 +1,351 @@
+---
+type Support = 'yes' | 'partial' | 'no';
+
+const apps = ['Yantagram', 'Signal', 'WhatsApp', 'iMessage', 'Meshtastic'];
+
+const rows: { feature: string; detail: string; support: Support[]; notes?: (string | undefined)[] }[] = [
+	{
+		feature: "Works without internet",
+		detail: "Messages hop between nearby phones over Bluetooth mesh.",
+		support: ['yes', 'no', 'no', 'no', 'yes'],
+	},
+	{
+		feature: "Also works over the internet",
+		detail: "Out of mesh range? Messages switch to an encrypted internet relay.",
+		support: ['yes', 'yes', 'yes', 'yes', 'partial'],
+		notes: [undefined, undefined, undefined, undefined, 'Via gateway'],
+	},
+	{
+		feature: "No extra hardware",
+		detail: "Runs on the phone you already have. No radios to buy, charge, or carry.",
+		support: ['yes', 'yes', 'yes', 'yes', 'no'],
+	},
+	{
+		feature: "End-to-end encrypted group chats",
+		detail: "Groups get the same end-to-end encryption as one-on-one chats.",
+		support: ['yes', 'yes', 'yes', 'yes', 'no'],
+	},
+	{
+		feature: "Forward secrecy",
+		detail: "Keys rotate continuously, so a stolen key can't unlock past messages.",
+		support: ['yes', 'yes', 'yes', 'yes', 'no'],
+	},
+	{
+		feature: "No phone number or email",
+		detail: "Sign up without handing over anything that identifies you.",
+		support: ['yes', 'no', 'no', 'no', 'yes'],
+	},
+	{
+		feature: "No central server required",
+		detail: "Nothing to shut down, subpoena, or block. The internet relay is optional.",
+		support: ['yes', 'no', 'no', 'no', 'yes'],
+	},
+	{
+		feature: "Identity stored only on your device",
+		detail: "No account database tying you to your contacts.",
+		support: ['yes', 'no', 'no', 'no', 'yes'],
+	},
+	{
+		feature: "Messages expire automatically",
+		detail: "Every message is erased within 7 days, no setting required.",
+		support: ['yes', 'partial', 'partial', 'no', 'no'],
+		notes: [undefined, 'Opt-in', 'Opt-in', undefined, undefined],
+	},
+];
+
+const meshtasticPoints = [
+	{
+		title: "Encrypted group chats",
+		description: "Meshtastic channels share a single key with everyone on them. Yantagram encrypts every group end-to-end, with forward secrecy.",
+	},
+	{
+		title: "Internet when you have it",
+		description: "Yantagram reaches contacts anywhere through an encrypted relay, then falls back to the mesh when the internet goes down.",
+	},
+	{
+		title: "Just your phone",
+		description: "No LoRa radio to buy, flash, charge, or carry. Anyone with the app joins the mesh.",
+	},
+];
+
+const labels: Record<Support, string> = {
+	yes: 'Yes',
+	partial: 'Partial',
+	no: 'No',
+};
+---
+
+<section id="compare">
+	<div class="container">
+		<div class="section-label">Compare</div>
+		<h2>How Yantagram stacks up</h2>
+		<p class="section-desc">
+			Popular messengers depend on servers, the internet, and your phone number. Off-grid radios need extra hardware.
+			Yantagram needs neither.
+		</p>
+
+		<div class="compare-scroll">
+			<table class="compare-table">
+				<thead>
+					<tr>
+						<th scope="col" class="feature-col"><span class="sr-only">Feature</span></th>
+						{apps.map((app, i) => (
+							<th scope="col" class:list={['app-col', { 'is-yanta': i === 0 }]}>
+								{i === 0 && <img src="/yanta-favicon.svg" alt="" width="28" height="28" />}
+								<span>{app}</span>
+							</th>
+						))}
+					</tr>
+				</thead>
+				<tbody>
+					{rows.map((row) => (
+						<tr>
+							<th scope="row" class="feature-col">
+								<span class="feature-name">{row.feature}</span>
+								<span class="feature-detail">{row.detail}</span>
+							</th>
+							{row.support.map((value, i) => (
+								<td class:list={['mark-cell', { 'is-yanta': i === 0 }]}>
+									<span class={`mark mark-${value}`} title={row.notes?.[i] ?? labels[value]}>
+										{value === 'yes' && (
+											<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+										)}
+										{value === 'partial' && (
+											<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="12" x2="18" y2="12"/></svg>
+										)}
+										{value === 'no' && (
+											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+										)}
+										<span class="sr-only">{row.notes?.[i] ?? labels[value]}</span>
+									</span>
+									{row.notes?.[i] && <span class="mark-note" aria-hidden="true">{row.notes[i]}</span>}
+								</td>
+							))}
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+
+		<p class="compare-footnote">
+			Based on each app's default behavior. Meshtastic encrypts direct messages end-to-end; channel messages use a shared key.
+			Meshtastic internet access requires an MQTT gateway node.
+		</p>
+	</div>
+</section>
+
+<style>
+	#compare {
+		padding: 40px 0 100px;
+	}
+
+	h2 {
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 700;
+		margin-bottom: 16px;
+	}
+
+	.section-desc {
+		color: var(--color-text-muted);
+		font-size: 1.0625rem;
+		max-width: 560px;
+		margin-bottom: 56px;
+	}
+
+	.compare-scroll {
+		overflow-x: auto;
+		background: var(--color-surface);
+		border: 1px solid var(--color-surface-border);
+		border-radius: var(--radius-xl);
+	}
+
+	.compare-table {
+		width: 100%;
+		min-width: 640px;
+		border-collapse: separate;
+		border-spacing: 0;
+	}
+
+	.compare-table th,
+	.compare-table td {
+		padding: 20px 16px;
+		border-bottom: 1px solid var(--color-surface-border);
+	}
+
+	.compare-table tbody tr:last-child > * {
+		border-bottom: none;
+	}
+
+	.feature-col {
+		text-align: left;
+		font-weight: 400;
+		padding-left: 32px !important;
+		width: 38%;
+	}
+
+	.feature-name {
+		display: block;
+		color: var(--color-heading);
+		font-weight: 600;
+		font-size: 0.9375rem;
+		line-height: 1.4;
+	}
+
+	.feature-detail {
+		display: block;
+		margin-top: 4px;
+		color: var(--color-text-muted);
+		font-size: 0.8125rem;
+		line-height: 1.5;
+	}
+
+	.app-col {
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: var(--color-text);
+		vertical-align: bottom;
+		padding-top: 28px !important;
+	}
+
+	.app-col img {
+		margin: 0 auto 8px;
+	}
+
+	.is-yanta {
+		background: var(--color-primary-dim);
+	}
+
+	th.is-yanta {
+		color: var(--color-heading);
+	}
+
+	.mark-cell {
+		text-align: center;
+	}
+
+	.mark {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+	}
+
+	.mark-yes {
+		background: color-mix(in srgb, var(--color-success) 16%, transparent);
+		color: var(--color-success);
+	}
+
+	.is-yanta .mark-yes {
+		background: var(--color-success);
+		color: var(--color-bg);
+	}
+
+	.mark-partial {
+		background: color-mix(in srgb, var(--color-warning) 16%, transparent);
+		color: var(--color-warning);
+	}
+
+	.mark-no {
+		background: color-mix(in srgb, var(--color-text-muted) 12%, transparent);
+		color: var(--color-text-muted);
+	}
+
+	.mark-note {
+		display: block;
+		margin-top: 4px;
+		font-size: 0.6875rem;
+		color: var(--color-text-muted);
+	}
+
+	.compare-footnote {
+		margin-top: 16px;
+		font-size: 0.8125rem;
+		color: var(--color-text-muted);
+	}
+
+	.vs-mesh {
+		margin-top: 56px;
+	}
+
+	.vs-mesh h3 {
+		font-size: 1.5rem;
+		margin-bottom: 24px;
+	}
+
+	.vs-mesh-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
+	}
+
+	.vs-mesh-card {
+		padding: 28px;
+		background:
+			radial-gradient(ellipse 80% 60% at 0% 0%, var(--color-primary-dim) 0%, transparent 100%),
+			var(--color-surface);
+		border: 1px solid var(--color-surface-border);
+		border-radius: var(--radius-lg);
+	}
+
+	.vs-mesh-card h4 {
+		font-size: 1.0625rem;
+		margin-bottom: 8px;
+	}
+
+	.vs-mesh-card p {
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
+		line-height: 1.65;
+	}
+
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+
+	@media (max-width: 1024px) {
+		.vs-mesh-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 640px) {
+		#compare {
+			padding: 40px 0 80px;
+		}
+
+		.compare-scroll {
+			border-radius: var(--radius-lg);
+		}
+
+		.compare-table th,
+		.compare-table td {
+			padding: 16px 10px;
+		}
+
+		.feature-col {
+			position: sticky;
+			left: 0;
+			z-index: 1;
+			background: var(--color-surface);
+			padding-left: 20px !important;
+		}
+
+		.feature-detail {
+			display: none;
+		}
+
+		.compare-table {
+			min-width: 560px;
+		}
+	}
+</style>
